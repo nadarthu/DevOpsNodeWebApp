@@ -28,7 +28,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: thulasinada/node-web-apps:${{github.sha}}
+          tags: thulasinada/node-web-app:${{github.sha}}
 
   azure-deploy:
     permissions:
@@ -43,4 +43,4 @@ jobs:
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          images: 'thulasinada/node-web-app-v1:${{github.sha}}'
+          images: 'thulasinada/node-web-app:${{github.sha}}'
